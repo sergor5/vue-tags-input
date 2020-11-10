@@ -138,6 +138,7 @@ div.vue-tags-input.disabled {
   &.ti-invalid,
   &.ti-tag.ti-deletion-mark {
     background-color: $error;
+    color: white;
   }
 }
 
