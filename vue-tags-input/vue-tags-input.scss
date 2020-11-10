@@ -1,20 +1,22 @@
-$primary: #5C6BC0;
+$primary: #dbe4eb;
 $error: #e54d42;
 $success: #68cd86;
 $warn: #ffb648;
 
 @font-face {
-  font-family: 'icomoon';
-  src:  url('./assets/fonts/icomoon.eot?7grlse');
-  src:  url('./assets/fonts/icomoon.eot?7grlse#iefix') format('embedded-opentype'),
-    url('./assets/fonts/icomoon.ttf?7grlse') format('truetype'),
-    url('./assets/fonts/icomoon.woff?7grlse') format('woff');
+  font-family: "icomoon";
+  src: url("./assets/fonts/icomoon.eot?7grlse");
+  src: url("./assets/fonts/icomoon.eot?7grlse#iefix")
+      format("embedded-opentype"),
+    url("./assets/fonts/icomoon.ttf?7grlse") format("truetype"),
+    url("./assets/fonts/icomoon.woff?7grlse") format("woff");
   font-weight: normal;
   font-style: normal;
 }
 
-[class^="ti-icon-"], [class*=" ti-icon-"] {
-  font-family: 'icomoon' !important;
+[class^="ti-icon-"],
+[class*=" ti-icon-"] {
+  font-family: "icomoon" !important;
   speak: none;
   font-style: normal;
   font-weight: normal;
@@ -43,7 +45,9 @@ ul {
   list-style-type: none;
 }
 
-*, *:before, *:after {
+*,
+*:before,
+*:after {
   box-sizing: border-box;
 }
 
@@ -56,7 +60,7 @@ input[disabled] {
 }
 
 .vue-tags-input {
-  max-width: 450px;
+  max-width: 100%;
   position: relative;
   background-color: #fff;
 }
@@ -85,12 +89,12 @@ div.vue-tags-input.disabled {
 
 .ti-tag {
   background-color: $primary;
-  color: #fff;
-  border-radius: 2px;
+  color: #697782;
+  border-radius: 5px;
   display: flex;
-  padding: 3px 5px;
+  padding: 10px 15px;
   margin: 2px;
-  font-size: .85em;
+  font-size: 1rem;
 
   &:focus {
     outline: none;
@@ -106,7 +110,7 @@ div.vue-tags-input.disabled {
   }
 
   span {
-    line-height: .85em;
+    line-height: 0.85em;
   }
 
   span.ti-hidden {
@@ -131,7 +135,8 @@ div.vue-tags-input.disabled {
     margin-right: 4px;
   }
 
-  &.ti-invalid, &.ti-tag.ti-deletion-mark {
+  &.ti-invalid,
+  &.ti-tag.ti-deletion-mark {
     background-color: $error;
   }
 }
@@ -141,7 +146,7 @@ div.vue-tags-input.disabled {
   flex: 1 0 auto;
   padding: 3px 5px;
   margin: 2px;
-  font-size: .85em;
+  font-size: 0.85em;
 
   input {
     flex: 1 0 auto;
