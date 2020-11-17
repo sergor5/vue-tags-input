@@ -58,6 +58,7 @@
                   performCancelEdit: cancelEdit,
                   performSaveEdit: performSaveTag,
                 }"
+                @onblur="this.$emit('onblur')"
               />
               <slot
                 name="tag-center"
