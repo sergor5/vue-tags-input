@@ -1,6 +1,6 @@
 {
   "name": "@sergor5/vue-tags-input",
-  "version": "2.1.4",
+  "version": "2.1.5",
   "author": "Sergen ORIN <serg_or5@hotmail.com>",
   "license": "MIT",
   "description": "A tags input component for VueJS with autocompletion, custom validation, templating and much more",
