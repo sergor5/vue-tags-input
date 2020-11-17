@@ -159,6 +159,7 @@ export default {
         )
       );
       this.$set(this.tagsEditStatus, index, false);
+      this.$emit("on-input-blur");
     },
     hasForbiddingAddRule(tiClasses) {
       // Does the tag has a rule, defined by the user, which prohibits adding?
@@ -396,7 +397,6 @@ export default {
 
       // Hide autocomplete layer
       this.focused = false;
-      this.$emit("on-input-blur");
     },
   },
   watch: {
