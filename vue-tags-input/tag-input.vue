@@ -11,20 +11,18 @@
     @input="scope.validateTag(scope.index, $event)"
     @blur="scope.performCancelEdit(scope.index)"
     @keydown="scope.performSaveEdit(scope.index, $event)"
-  >
+  />
 </template>
 
 <script>
-
 export default {
-  name: 'TagInput',
+  name: "TagInput",
   props: {
     scope: {
       type: Object,
     },
   },
 };
-
 </script>
 
 <style lang="css" scoped>

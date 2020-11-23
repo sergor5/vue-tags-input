@@ -159,7 +159,6 @@ export default {
         )
       );
       this.$set(this.tagsEditStatus, index, false);
-      this.$emit("on-input-blur");
     },
     hasForbiddingAddRule(tiClasses) {
       // Does the tag has a rule, defined by the user, which prohibits adding?

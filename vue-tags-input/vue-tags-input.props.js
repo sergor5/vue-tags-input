@@ -1,25 +1,27 @@
 // The file contains all props and validators which are provided by the component
 
-const propValidatorTag = value => {
-  return !value.some(t => {
+const propValidatorTag = (value) => {
+  return !value.some((t) => {
     const invalidText = !t.text;
     if (invalidText) console.warn('Missing property "text"', t);
 
     let invalidClasses = false;
-    if (t.classes) invalidClasses = typeof t.classes !== 'string';
-    if (invalidClasses) console.warn('Property "classes" must be type of string', t);
+    if (t.classes) invalidClasses = typeof t.classes !== "string";
+    if (invalidClasses)
+      console.warn('Property "classes" must be type of string', t);
 
     return invalidText || invalidClasses;
   });
 };
 
-const propValidatorStringNumeric = value => {
-  return !value.some(v => {
-    if (typeof v === 'number') {
+const propValidatorStringNumeric = (value) => {
+  return !value.some((v) => {
+    if (typeof v === "number") {
       const numeric = isFinite(v) && Math.floor(v) === v;
-      if (!numeric) console.warn('Only numerics are allowed for this prop. Found:', v);
+      if (!numeric)
+        console.warn("Only numerics are allowed for this prop. Found:", v);
       return !numeric;
-    } else if (typeof v === 'string') {
+    } else if (typeof v === "string") {
       /*
        * Regex: || Not totally fool-proof yet, still matches "0a" and such
        * - allow non-word characters (aka symbols e.g. ;, :, ' etc)
@@ -27,10 +29,11 @@ const propValidatorStringNumeric = value => {
        * - deny numbers
        */
       const string = /\W|[a-z]|!\d/i.test(v);
-      if (!string) console.warn('Only alpha strings are allowed for this prop. Found:', v);
+      if (!string)
+        console.warn("Only alpha strings are allowed for this prop. Found:", v);
       return !string;
     } else {
-      console.warn('Only numeric and string values are allowed. Found:', v);
+      console.warn("Only numeric and string values are allowed. Found:", v);
       return false;
     }
   });
@@ -51,8 +54,11 @@ export default {
    */
   value: {
     type: String,
-    default: '',
+    default: "",
     required: true,
+  },
+  name: {
+    type: String,
   },
   /**
    * @description Pass an array containing objects like in the example below.
@@ -157,7 +163,7 @@ export default {
    */
   placeholder: {
     type: String,
-    default: 'Add Tag',
+    default: "Add Tag",
   },
   /**
    * @description Custom trigger key codes can be registrated. If the user presses one of these,
@@ -228,19 +234,19 @@ export default {
     type: Array,
     default: () => [],
     validator(value) {
-      return !value.some(v => {
+      return !value.some((v) => {
         const missingRule = !v.rule;
         if (missingRule) console.warn('Property "rule" is missing', v);
 
-        const validRule = v.rule && (
-          typeof v.rule === 'string' ||
-          v.rule instanceof RegExp ||
-          {}.toString.call(v.rule) === '[object Function]'
-        );
+        const validRule =
+          v.rule &&
+          (typeof v.rule === "string" ||
+            v.rule instanceof RegExp ||
+            {}.toString.call(v.rule) === "[object Function]");
 
         if (!validRule) {
           console.warn(
-            'A rule must be type of string, RegExp or function. Found:',
+            "A rule must be type of string, RegExp or function. Found:",
             JSON.stringify(v.rule)
           );
         }
@@ -248,8 +254,9 @@ export default {
         const missingClasses = !v.classes;
         if (missingClasses) console.warn('Property "classes" is missing', v);
 
-        const invalidType = v.type && typeof v.type !== 'string';
-        if (invalidType) console.warn('Property "type" must be type of string. Found:', v);
+        const invalidType = v.type && typeof v.type !== "string";
+        if (invalidType)
+          console.warn('Property "type" must be type of string. Found:', v);
 
         return !validRule || missingRule || missingClasses || invalidType;
       });
@@ -268,11 +275,12 @@ export default {
    */
   separators: {
     type: Array,
-    default: () => [';'],
+    default: () => [";"],
     validator(value) {
-      return !value.some(s => {
-        const invalidType = typeof s !== 'string';
-        if (invalidType) console.warn('Separators must be type of string. Found:', s);
+      return !value.some((s) => {
+        const invalidType = typeof s !== "string";
+        if (invalidType)
+          console.warn("Separators must be type of string. Found:", s);
         return invalidType;
       });
     },

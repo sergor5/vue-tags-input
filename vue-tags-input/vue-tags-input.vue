@@ -18,17 +18,14 @@
             { 'ti-editing': tagsEditStatus[index] },
             tag.tiClasses,
             tag.classes,
-            { 'ti-deletion-mark': isMarked(index) }
+            { 'ti-deletion-mark': isMarked(index) },
           ]"
           tabindex="0"
           class="ti-tag"
           @click="$emit('tag-clicked', { tag, index })"
         >
           <div class="ti-content">
-            <div
-              v-if="$scopedSlots['tag-left']"
-              class="ti-tag-left"
-            >
+            <div v-if="$scopedSlots['tag-left']" class="ti-tag-left">
               <slot
                 name="tag-left"
                 :tag="tag"
@@ -46,9 +43,11 @@
                 v-if="!$scopedSlots['tag-center']"
                 :class="{ 'ti-hidden': tagsEditStatus[index] }"
                 @click="performEditTag(index)"
-              >{{ tag.text }}</span>
+                >{{ tag.text }}</span
+              >
               <tag-input
                 v-if="!$scopedSlots['tag-center']"
+                :name="name"
                 :scope="{
                   edit: tagsEditStatus[index],
                   maxlength,
@@ -74,10 +73,7 @@
                 :deletion-mark="isMarked(index)"
               />
             </div>
-            <div
-              v-if="$scopedSlots['tag-right']"
-              class="ti-tag-right"
-            >
+            <div v-if="$scopedSlots['tag-right']" class="ti-tag-right">
               <slot
                 name="tag-right"
                 :tag="tag"
@@ -129,11 +125,15 @@
             :maxlength="maxlength"
             :disabled="disabled"
             type="text"
+            :name="name"
             size="1"
             class="ti-new-tag-input"
-            @keydown="performAddTags(
-              filteredAutocompleteItems[selectedItem] || newTag, $event
-            )"
+            @keydown="
+              performAddTags(
+                filteredAutocompleteItems[selectedItem] || newTag,
+                $event
+              )
+            "
             @paste="addTagsFromPaste"
             @keydown.8="invokeDelete"
             @keydown.9="performBlur"
@@ -141,9 +141,12 @@
             @keydown.40="selectItem($event, 'after')"
             @input="updateNewTag"
             @blur="$emit('blur', $event)"
-            @focus="focused = true; $emit('focus', $event)"
-            @click="addOnlyFromAutocomplete ? false : selectedItem = null"
-          >
+            @focus="
+              focused = true;
+              $emit('focus', $event);
+            "
+            @click="addOnlyFromAutocomplete ? false : (selectedItem = null)"
+          />
         </li>
       </ul>
     </div>
@@ -162,10 +165,10 @@
           :class="[
             item.tiClasses,
             item.classes,
-            { 'ti-selected-item': isSelected(index) }
+            { 'ti-selected-item': isSelected(index) },
           ]"
           class="ti-item"
-          @mouseover="disabled ? false : selectedItem = index"
+          @mouseover="disabled ? false : (selectedItem = index)"
         >
           <div
             v-if="!$scopedSlots['autocomplete-item']"
@@ -178,7 +181,9 @@
             name="autocomplete-item"
             :item="item"
             :index="index"
-            :perform-add="item => performAddTags(item, undefined, 'autocomplete')"
+            :perform-add="
+              (item) => performAddTags(item, undefined, 'autocomplete')
+            "
             :selected="isSelected(index)"
           />
         </li>
