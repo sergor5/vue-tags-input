@@ -423,6 +423,8 @@ export default {
 
     // We add a event listener to hide autocomplete on blur
     document.addEventListener("click", this.blurredOnClick);
+
+    setTimeout(() => this.performAddTags(this.newTag), 10);
   },
   destroyed() {
     document.removeEventListener("click", this.blurredOnClick);

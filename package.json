@@ -1,45 +1,50 @@
 {
-  "name": "@sergor5/vue-tags-input",
-  "version": "2.1.9",
-  "author": "Sergen ORIN <serg_or5@hotmail.com>",
-  "license": "MIT",
-  "description": "A tags input component for VueJS with autocompletion, custom validation, templating and much more",
-  "homepage": "http://www.vue-tags-input.com",
-  "private": false,
-  "keywords": [
-    "javascript",
-    "vue",
-    "tags",
-    "vue-tags-input",
-    "vue-component",
-    "autocomplete"
+  "_args": [
+    [
+      "@sergor5/vue-tags-input@2.1.10",
+      "C:\\Users\\Sereg\\Desktop\\firmadan-sunucu\\firmadan-frontend\\frontend"
+    ]
   ],
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/sergor5/vue-tags-input.git"
+  "_from": "@sergor5/vue-tags-input@2.1.10",
+  "_id": "@sergor5/vue-tags-input@2.1.10",
+  "_inBundle": false,
+  "_integrity": "sha512-e4XqO0xSPWsRSBGK3a1uWmuGvv0/1kIPC1xi1Vuz7oqaOmU8IML4EaXivU37wW0ifXUoVHTfGzkAsOiEmOAX2A==",
+  "_location": "/@sergor5/vue-tags-input",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "version",
+    "registry": true,
+    "raw": "@sergor5/vue-tags-input@2.1.10",
+    "name": "@sergor5/vue-tags-input",
+    "escapedName": "@sergor5%2fvue-tags-input",
+    "scope": "@sergor5",
+    "rawSpec": "2.1.10",
+    "saveSpec": null,
+    "fetchSpec": "2.1.10"
   },
-  "main": "dist/vue-tags-input.js",
-  "scripts": {
-    "dev": "npm run docs",
-    "docs": "cross-env NODE_ENV=development webpack-dev-server --hot --config ./build/docs.config.js",
-    "build-docs": "cross-env NODE_ENV=production webpack --config ./build/docs.config.js --hide-modules",
-    "analyze": "cross-env ANALYZE=true npm run build-docs",
-    "build-lib": "webpack --config ./build/lib.config.js --hide-modules",
-    "precommit": "lint-staged",
-    "lint": "eslint --ext .js,.vue --ignore-path .gitignore . --ignore-pattern *.demo.*",
-    "lint-fix": "eslint --fix --ignore-path .gitignore --ext .js,.vue . --ignore-pattern *.demo.*",
-    "e2e": "testcafe all e2e/*test* --app \"npm run dev\" --app-init-delay 10000 -S -s screenshots"
+  "_requiredBy": [
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/@sergor5/vue-tags-input/-/vue-tags-input-2.1.10.tgz",
+  "_spec": "2.1.10",
+  "_where": "C:\\Users\\Sereg\\Desktop\\firmadan-sunucu\\firmadan-frontend\\frontend",
+  "author": {
+    "name": "Sergen ORIN",
+    "email": "serg_or5@hotmail.com"
   },
-  "lint-staged": {
-    "*.js": "eslint",
-    "*.vue": "eslint"
-  },
-  "peerDependencies": {
-    "vue": "2.x"
+  "browserslist": [
+    "ie >= 11",
+    "last 2 Firefox versions",
+    "last 5 Chrome versions",
+    "last 2 iOS versions"
+  ],
+  "bugs": {
+    "url": "https://github.com/sergor5/vue-tags-input/issues"
   },
   "dependencies": {
     "vue": "^2.6.10"
   },
+  "description": "A tags input component for VueJS with autocompletion, custom validation, templating and much more",
   "devDependencies": {
     "@babel/core": "^7.1.2",
     "@babel/plugin-proposal-object-rest-spread": "^7.0.0",
@@ -101,15 +106,45 @@
       "vue/multiline-html-element-content-newline": "off"
     }
   },
-  "browserslist": [
-    "ie >= 11",
-    "last 2 Firefox versions",
-    "last 5 Chrome versions",
-    "last 2 iOS versions"
+  "homepage": "http://www.vue-tags-input.com",
+  "keywords": [
+    "javascript",
+    "vue",
+    "tags",
+    "vue-tags-input",
+    "vue-component",
+    "autocomplete"
   ],
+  "license": "MIT",
+  "lint-staged": {
+    "*.js": "eslint",
+    "*.vue": "eslint"
+  },
+  "main": "dist/vue-tags-input.js",
+  "name": "@sergor5/vue-tags-input",
+  "peerDependencies": {
+    "vue": "2.x"
+  },
   "postcss": {
     "plugins": {
       "autoprefixer": {}
     }
-  }
+  },
+  "private": false,
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sergor5/vue-tags-input.git"
+  },
+  "scripts": {
+    "analyze": "cross-env ANALYZE=true npm run build-docs",
+    "build-docs": "cross-env NODE_ENV=production webpack --config ./build/docs.config.js --hide-modules",
+    "build-lib": "webpack --config ./build/lib.config.js --hide-modules",
+    "dev": "npm run docs",
+    "docs": "cross-env NODE_ENV=development webpack-dev-server --hot --config ./build/docs.config.js",
+    "e2e": "testcafe all e2e/*test* --app \"npm run dev\" --app-init-delay 10000 -S -s screenshots",
+    "lint": "eslint --ext .js,.vue --ignore-path .gitignore . --ignore-pattern *.demo.*",
+    "lint-fix": "eslint --fix --ignore-path .gitignore --ext .js,.vue . --ignore-pattern *.demo.*",
+    "precommit": "lint-staged"
+  },
+  "version": "2.1.10"
 }
